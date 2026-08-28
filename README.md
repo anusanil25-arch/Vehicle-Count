@@ -893,7 +893,7 @@ This project shows how historical traffic data and Machine Learning techniques c
 
 # Author
 
-**Anu**
+**Anu S Anil**
 
 ---
 
