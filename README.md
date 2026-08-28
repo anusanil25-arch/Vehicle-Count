@@ -1,4 +1,4 @@
-# 🚗 Vehicle Count Prediction Using Machine Learning
+# Vehicle Count Prediction Using Machine Learning
 
 ## 📌 Project Overview
 
@@ -23,7 +23,7 @@ This project includes the complete Machine Learning workflow:
 
 ---
 
-# 🎯 Project Objective
+# Project Objective
 
 The main objective of this project is to build a Machine Learning model that can predict the number of vehicles at a particular date and time using historical traffic data.
 
@@ -42,7 +42,7 @@ The project aims to:
 
 ---
 
-# 🧠 Machine Learning Problem Type
+# Machine Learning Problem Type
 
 This project is a **Supervised Machine Learning Regression Problem**.
 
@@ -54,7 +54,7 @@ Regression algorithms are used when the goal is to predict a numerical value.
 
 ---
 
-# 📂 Dataset Description
+#  Dataset Description
 
 The original dataset contains:
 
@@ -68,7 +68,7 @@ The original dataset contains:
 
 ---
 
-# 🔍 Data Understanding
+#  Data Understanding
 
 The following methods were used to understand the dataset:
 
@@ -109,7 +109,7 @@ Used to check the column names.
 
 ---
 
-# 🧹 Data Cleaning and Preprocessing
+#  Data Cleaning and Preprocessing
 
 ## 1. Checking Missing Values
 
@@ -119,7 +119,7 @@ Missing values were checked using:
 df.isnull().sum()
 ```
 
-The original dataset did not contain missing values.
+The original dataset not contain missing values.
 
 ---
 
@@ -168,11 +168,10 @@ df = df.sort_values('DateTime')
 df = df.reset_index(drop=True)
 ```
 
-This is important because lag features depend on previous observations.
 
 ---
 
-# ⚙️ Feature Engineering
+#  Feature Engineering
 
 Feature engineering is the process of creating useful input features from the existing data.
 
@@ -255,7 +254,7 @@ Represents the week number within the year.
 
 ---
 
-# ⏮️ Lag Features
+# Lag Features
 
 Lag features represent previous vehicle observations.
 
@@ -284,7 +283,7 @@ Lag features help the model learn from historical traffic patterns.
 
 ---
 
-# 📊 Rolling Mean Features
+#  Rolling Mean Features
 
 Rolling mean features calculate the average vehicle count over previous observations.
 
@@ -303,20 +302,13 @@ df['Rolling_Mean_24'] = df['Vehicles'].shift(1).rolling(24).mean()
 | `Rolling_Mean_3`  | Average of the previous 3 observations  |
 | `Rolling_Mean_24` | Average of the previous 24 observations |
 
-These features help capture recent traffic trends.
-
-The data is shifted before calculating the rolling mean to ensure that historical information is used.
 
 ---
 
-# 🗑️ Handling Missing Values After Feature Engineering
+# Handling Missing Values After Feature Engineering
 
 Lag and rolling mean features create missing values at the beginning of the dataset.
 
-For example:
-
-* `Lag_24` requires 24 previous observations.
-* The first observations do not have enough historical data.
 
 These rows were removed using:
 
@@ -326,7 +318,7 @@ df = df.dropna().reset_index(drop=True)
 
 ---
 
-# 📈 Exploratory Data Analysis
+#  Exploratory Data Analysis
 
 Exploratory Data Analysis was performed to understand traffic patterns and relationships in the dataset.
 
@@ -444,7 +436,7 @@ The correlation matrix helps understand the relationship between input features 
 
 ---
 
-# 🎯 Feature and Target Selection
+# Feature and Target Selection
 
 The target variable is:
 
@@ -489,7 +481,7 @@ Vehicles
 
 ---
 
-# ✂️ Train-Test Split
+#  Train-Test Split
 
 The dataset was split chronologically.
 
@@ -516,7 +508,7 @@ The model is trained using earlier observations and tested using later observati
 
 ---
 
-# 🤖 Machine Learning Models
+#  Machine Learning Models
 
 The following regression models were used.
 
@@ -570,7 +562,7 @@ The model was trained and evaluated using the same training and testing data.
 
 ---
 
-# 📏 Model Evaluation Metrics
+#  Model Evaluation Metrics
 
 Three metrics were used to evaluate the models.
 
@@ -600,7 +592,7 @@ R² Score measures how much variation in the target variable is explained by the
 
 ---
 
-# 📊 Model Performance Comparison
+#  Model Performance Comparison
 
 The results obtained from the project are:
 
@@ -612,7 +604,7 @@ The results obtained from the project are:
 
 ---
 
-# 🏆 Best Model
+#  Best Model
 
 ## Random Forest Regressor
 
@@ -635,7 +627,7 @@ Although Gradient Boosting achieved a slightly lower MAE, Random Forest was sele
 
 ---
 
-# 🚀 Final Model
+#  Final Model
 
 The final Random Forest model was created using:
 
@@ -651,7 +643,7 @@ best_model.fit(x_train, y_train)
 
 ---
 
-# 📉 Actual vs Predicted Vehicle Count
+# Actual vs Predicted Vehicle Count
 
 The final model was used to generate predictions on the test dataset.
 
@@ -698,7 +690,7 @@ plt.show()
 
 ---
 
-# 🔮 Vehicle Count Prediction
+#  Vehicle Count Prediction
 
 The final model was used to predict vehicle count for the following timestamp:
 
@@ -740,7 +732,7 @@ Predicted Vehicle Count:
 42
 ```
 
-# 🚗 Predicted Vehicle Count: 42
+#  Predicted Vehicle Count: 42
 
 ---
 
@@ -782,7 +774,7 @@ Final Prediction
 
 ---
 
-# 🛠️ Technologies Used
+#  Technologies Used
 
 ## Programming Language
 
@@ -798,73 +790,31 @@ Final Prediction
 
 ---
 
-# 📦 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/vehicle-count-prediction.git
-```
-
-Move to the project directory:
-
-```bash
-cd vehicle-count-prediction
-```
-
-Install the required libraries:
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
-```
 
 ---
 
-# ▶️ How to Run the Project
 
-1. Clone or download the repository.
-2. Install the required Python libraries.
-3. Make sure the dataset file is available.
-4. Open the Jupyter Notebook.
-5. Run the notebook cells sequentially.
-6. Perform data preprocessing and feature engineering.
-7. Train the Machine Learning models.
-8. Compare model performance.
-9. Use the final Random Forest model to predict vehicle counts.
 
 ---
 
-# 📁 Suggested Project Structure
+#  Suggested Project Structure
 
 ```text
-vehicle-count-prediction/
-│
+
+
 ├── vehicle_count.ipynb
 │
 ├── vehicles.csv
 │
 ├── README.md
-│
-└── requirements.txt
+
 ```
 
 ---
 
-# 📝 requirements.txt
 
-You can create a file named `requirements.txt` and add:
 
-```text
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-```
-
----
-
-# 💡 Key Learnings
+#  Key Learnings
 
 Through this project, I learned:
 
@@ -887,7 +837,7 @@ Through this project, I learned:
 
 ---
 
-# ⚠️ Limitations
+#  Limitations
 
 The model has some limitations:
 
@@ -898,13 +848,12 @@ The model has some limitations:
 
 ---
 
-# 🔮 Future Improvements
+#  Future Improvements
 
 This project can be improved by:
 
 * Adding more traffic-related data.
 * Performing hyperparameter tuning.
-* Testing additional Machine Learning algorithms.
 * Using advanced time-series forecasting models.
 * Adding external factors that may affect traffic.
 * Developing a real-time traffic prediction system.
@@ -948,4 +897,4 @@ This project shows how historical traffic data and Machine Learning techniques c
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star!
+
